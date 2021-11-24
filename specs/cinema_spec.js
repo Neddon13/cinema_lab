@@ -39,7 +39,8 @@ describe('Cinema', function () {
   });
   
   it('should be able to filter films by genre', function () {
-    const actual = cinema.filterFilms('action');
+    // const actual = cinema.filterFilms('action');
+    const actual = cinema.filmsByProperty('genre', 'action');
     assert.deepStrictEqual(actual, [blackPanther]);
   });
 
@@ -62,5 +63,10 @@ describe('Cinema', function () {
     const actual = cinema.totalRunningTime();
     assert.strictEqual(actual, 622);
   });
+
+  it('should be able to filter films by property', function () {
+    const actual = cinema.filmsByProperty("year", 2016);
+    assert.deepStrictEqual(actual, [moonlight]);
+  })
 
 });
